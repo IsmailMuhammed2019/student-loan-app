@@ -245,6 +245,28 @@ export default function LoanForm() {
                   </div>
                 )}
 
+                {/* Level of Education Field */}
+                <div className="mb-8">
+                  <label htmlFor="education" className="block text-sm font-medium text-gray-700">
+                    Level of Education<span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    id="education"
+                    name="education"
+                    onChange={handleChange}
+                    required
+                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-green-500 hover:ring-green-500 sm:text-sm h-8 pl-3 appearance-none"
+                  >
+                    <option value="">Select your level of education</option>
+                    <option value="High School">High School</option>
+                    <option value="Associate Degree">Associate Degree</option>
+                    <option value="Bachelor's Degree">Bachelor's Degree</option>
+                    <option value="Master's Degree">Master's Degree</option>
+                    <option value="Doctorate">Doctorate</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
                 <div className="flex justify-between mt-">
                   <Button
                     type="button"
