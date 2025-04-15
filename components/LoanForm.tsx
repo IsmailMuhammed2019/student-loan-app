@@ -50,11 +50,13 @@ export default function LoanForm() {
   const [formData, setFormData] = useState({
     email: "",
     phoneNumber: "",
+    modeOfIdentification: "",
+    identificationNumber: "",
   });
   const [submitted, setSubmitted] = useState(false);
   const [step, setStep] = useState(1);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -128,6 +130,40 @@ export default function LoanForm() {
                     className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-green-500 hover:ring-green-500 sm:text-sm h-8 pl-3 appearance-none"
                   />
                 </div>
+                <div className="mb-8">
+                  <label className="block text-sm font-medium text-gray-700">
+                    Mode of Identification<span className="text-red-500">*</span>
+                  </label>
+                  <div className="space-y-2">
+                    {["NIN", "BVN", "International Passport"].map((idType) => (
+                      <div key={idType} className="flex items-center">
+                        <input
+                          type="radio"
+                          id={idType}
+                          name="modeOfIdentification"
+                          value={idType}
+                          onChange={handleChange}
+                          className="h-4 w-4 text-green-500 border-gray-300 focus:ring-green-500"
+                          required
+                        />
+                        <label htmlFor={idType} className="ml-2 text-sm text-gray-700">
+                          {idType}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                {formData.modeOfIdentification && (
+                  <div className="mb-8">
+                    <InputField
+                      label={`Enter your ${formData.modeOfIdentification} Number`}
+                      name="identificationNumber"
+                      required
+                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-green-500 hover:ring-green-500 sm:text-sm h-8 pl-3 appearance-none"
+                      onChange={handleChange}
+                    />
+                  </div>
+                )}
                 <div className="flex flex-col md:flex-row gap-4 mb-8">
                   <div className="flex-1">
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700">

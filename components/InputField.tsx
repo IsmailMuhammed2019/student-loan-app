@@ -1,17 +1,33 @@
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+import React from "react";
 
 interface InputFieldProps {
   label: string;
   name: string;
-  type?: string;
   required?: boolean;
-  className?: string; // Add className prop
+  className?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void; // Add this line
 }
 
-export const InputField = ({ label, name, type = "text", required = false, className }: InputFieldProps) => (
-  <div className="space-y-1">
-    <Label htmlFor={name}>{label} <span className="text-red-500">*</span></Label>
-    <Input id={name} name={name} type={type} required={required} className={className} />
-  </div>
-);
+export const InputField: React.FC<InputFieldProps> = ({
+  label,
+  name,
+  required = false,
+  className,
+  onChange,
+}) => {
+  return (
+    <div>
+      <label htmlFor={name} className="block text-sm font-medium text-gray-700">
+        {label}
+        {required && <span className="text-red-500">*</span>}
+      </label>
+      <input
+        id={name}
+        name={name}
+        required={required}
+        className={className}
+        onChange={onChange} // Pass the onChange prop to the input
+      />
+    </div>
+  );
+};
