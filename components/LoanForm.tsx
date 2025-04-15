@@ -87,9 +87,9 @@ export default function LoanForm() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-6 shadow rounded-lg max-w-2xl w-full">
-        <h1 className="text-2xl font-bold mb-2 text-center">Student Loan Application</h1>
+        <h1 className="text-2xl font-bold mb-2 text-center">Apply For ICBM Training Loan Application</h1>
         <p className="text-center text-gray-600 mb-10">
-          Apply for a student loan to fund your Training at IBCM and Training Institute we connect you to your opportunities and achieve your career goals. <br />Complete the form below to get started.
+          Apply for a training loan to fund your training at IBCM and Training Institute, we connect you to your opportunities and achieve your career goals. <br />Complete the form below to get started.
         </p>
 
         {submitted ? (
