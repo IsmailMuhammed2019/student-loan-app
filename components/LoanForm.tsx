@@ -128,7 +128,7 @@ export default function LoanForm() {
                     className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-green-500 hover:ring-green-500 sm:text-sm h-8 pl-3 appearance-none"
                   />
                 </div>
-                <div className="flex gap-4 mb-">
+                <div className="flex flex-col md:flex-row gap-4 mb-8">
                   <div className="flex-1">
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                       Email<span className="text-red-500">*</span>
